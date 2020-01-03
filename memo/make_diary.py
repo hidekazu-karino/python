@@ -40,9 +40,15 @@ def make_diary_files(year, is_leap):
         days_of_month[1] += 1
     for month_idx, month in enumerate(months):
         days = days_of_month[month_idx]
+        if month_idx < 2:
+            month_idx_new = 12
+            year_new = year - 1
+        else:
+            month_idx_new = month_idx
+            year_new = year
         diary_format = ""
         for d in range(1, days+1):
-            day = day_of_the_week[get_day_index(year, month_idx+1, d)]
+            day = day_of_the_week[get_day_index(year_new, month_idx_new+1, d)]
             d = str(d).zfill(2)
             diary_format += f"{year},{month},{d},{day}\n\n"
 
