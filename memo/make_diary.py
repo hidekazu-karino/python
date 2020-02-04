@@ -41,7 +41,7 @@ def make_diary_files(year, is_leap):
     for month_idx, month in enumerate(months):
         days = days_of_month[month_idx]
         if month_idx < 2:
-            month_idx_new = 12
+            month_idx_new = month_idx + 12
             year_new = year - 1
         else:
             month_idx_new = month_idx
